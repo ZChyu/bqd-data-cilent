@@ -22,7 +22,7 @@ public class QdbController {
     private static final Logger logger = LoggerFactory.getLogger(QdbController.class);
 
 
-    //qd本地文件下载相关代码
+    //qd本地文件下载
     @RequestMapping("/download")
     public String download(){
         try {
@@ -39,7 +39,6 @@ public class QdbController {
     //文件解密
     @RequestMapping("/decryptFile")
     public String decryptFile() {
-
         //获取密钥、解密路径，解密到当前路径下
         qdbSecurity qdbSecurity = qdbService.getScurityKeyAndPath();
         String res = qdbService.decryptFile(qdbSecurity.getFilePath(),qdbSecurity.getSecretKey());
